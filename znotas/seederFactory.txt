@@ -1,0 +1,21 @@
+- php artisan make:seeder TaskSeeder
+  crea un seeder de nombre TaskSeeder dentro 
+  de la carpeta /database/seeders
+  el modelo debe estar importado
+
+  el seeder se puede llamar en /database/seeders/DatabaseSeeder.php
+  de esta forma $this->call([TaskSeeder::class])
+
+  ahora de debe correr la migración completa:
+   php artisan migrate:fresh --seed
+
+- php artisan make:factory TaskFactory --model=Task
+  crea una factoria de nombre "TaskFactory" utilizando el modelo "Task"
+  se crea en la ruta /database/factories
+
+  en el return se deben especificar la columnas a rellenar con los datos falsos
+  ejemplo: "tarea"=> $this->faker->name()
+  la factoria debe llamarse en DatabaseSeeder:
+    Task::factory(50)->create();
+  después debe correr la migración:
+    php artisan migrate:fresh --seed

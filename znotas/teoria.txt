@@ -1,0 +1,64 @@
+
+
+//-------------------------------------------------------------
+
+
+
+//-------------------------------------------------------------
+
+
+//-------------------------------------------------------------
+
+
+
+//-------------------------------------------------------------
+
+
+  
+
+//--------------------------------------------------------------
+
+- para crear una base de datos:
+  se debe tener activo apache y mysql
+  desde http://localhost/phpmyadmin en XAMPP
+  en la pestaña base de datos
+
+  despues asociar la base creada desde el
+  archivo .env en DB_DATABASE=
+
+//--------------------------------------------------------------
+
+- las migraciones permiten gestionar la base de datos desde laravel
+  las migraciones se guardan en /database/migrations
+  
+  -para crear migraciones:
+  (en consola) php artisan make:migration create_ejemplos_table
+  -para ejecutar las migraciones:
+  php artisan migrate
+  -para deshacer: 
+  php artisan migrate:rollback
+
+//--------------------------------------------------------------
+  NOTA: las tablas se nombran en plural y los modelos en singular
+  ejemplo: tabla: "create_users_table" | modelo: "User" 
+
+- los modelos son una clase que representa una tabla en la base de datos
+  los modelos se encuentran en App/Models/
+  se debe importar el modelo en el controlador
+
+//--------------------------------------------------------------
+
+- eloquent es el (ORM) permite trabajar con sintaxis de php en vez de sql
+
+//--------------------------------------------------------------
+
+Notas adicionales:
+
+- se puede crear el controlador y el modelo con un solo comando.
+  adicional, se puede especificar el tipo de controlador
+  ejemplo:
+  php artisan make:controller UserController --resource --model=User
+  ese comando crea un controlador de nombre "UserController"
+  de tipo resource, y crea el modelo con nombre "User"
+
+  resource controler ofrece los métodos para un crud

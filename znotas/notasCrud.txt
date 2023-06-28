@@ -1,0 +1,61 @@
+- base de datos: crud_exercise
+  se asocia en el archivo .env
+
+- php artisan make:migration create_tasks_table
+  crea la migracion (tabla "tasks")
+  se agregan las columnas "tarea" y "estado":
+    $table->text('tarea');
+    $table->enum('estado', ['pendiente', 'completada'])->nullable();
+  se ejecuta la migracion con:
+    php artisan migrate
+
+- php artisan make:controller taskController --resource --model=Task
+  crea el controlador taskController que es de tipo resource
+  este ya tiene todos los métodos típicos de un crud
+  ese comando también crea el modelo Taks
+
+- en la rutas web.php se importa el controlador
+    use App\Http\Controllers\taskController;
+  y se crea la ruta:
+    Route::resource('tasks', taskController::class);
+  al ser resource ya tiene la rutas predefinidas, se pueden visualizar con el comando:
+    php artisan route:list
+    esto muestra una tabla con:
+    método_http | url | nombre_ruta | método_controlador
+
+- "base.blade.php" será la plantilla base para el sitio (permite reutilizar navs, pies de pagina, etc)
+  la directiva @yield("contenido") permite marcar el área o posición donde
+  se va a insertar el codigo html de cada vista
+
+  "index.blade.php" será la vista principal de la aplicación
+
+- asociar las vistas con la ruta:
+  se accede al controlador taskController
+
+  *el método index se retorna la vista index
+    return view("index"); //esto se refiere a index.blade.php
+
+  *el metodo create se usa para mostrar el formulario del nuevo registro
+    cada atributo name del formulario debe tener el mismo nombre
+    de los campos de la base de datos
+
+    el formulario debe seguir la ruta dada en route:list
+     POST | tasks | tasks.store | taskController@store
+    también se debe agregar el token csrf dentro del form
+    quedaría así:
+    <form action="{{route('tasks.store')}}" method="POST">
+      @csrf
+
+  *el método store se usa para ejecutar la lógica para almacenar el nuevo registro
+    el modelo debe estár importado
+    después se maneja lo que llega del formulario
+
+  es necesario especificar en el modelo que atritubos cuando se hace asignación masiva
+    protected $fillable = ["tarea", "estado"];
+  
+
+  *el metodo edit sirve para mostrar el formulario del registro a editar
+
+  
+
+

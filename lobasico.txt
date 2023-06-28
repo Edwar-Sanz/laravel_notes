@@ -1,0 +1,17 @@
+tener instalado todo lo necesario para instalar y ejecutar laravel
+
+php -V
+composer -V
+
+para instalar laravel:
+  composer global require laravel/installer
+
+laravel -V
+
+crear aplicacion con laravel:
+  composer create-project laravel/laravel "nombre proyecto"
+
+activar  Xampp
+
+ingresar a la carpeta del proyecto en la terminal y ejecutar:
+  php artisan serve

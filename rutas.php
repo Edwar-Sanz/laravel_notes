@@ -2,6 +2,8 @@
   a acciones específicas dentro de la aplicación. 
   se ubican en la carpeta /routes
 
+  para mostrar las rutas
+  php artisan route::list muestra las rutas
 
 <?php
 // rutas en laravel:

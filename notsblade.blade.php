@@ -28,7 +28,12 @@
     <nav>barra de navegación</nav>
       @yield("content"); 
 
-  
+{{--  --}}
+{{-- include es otra directiva para llamar un .blade dentro de otro --}}
+@include("myView"); {{-- esto busca /resources/views/myView.blade.php --}}
+
+
+
 {{-- estructuras de control con blade --}}
 
   {{-- forma 1 --}}

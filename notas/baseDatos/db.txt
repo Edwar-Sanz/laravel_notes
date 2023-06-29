@@ -1,0 +1,22 @@
+
+
+- para crear una base de datos:
+  se debe tener activo apache y mysql
+  desde http://localhost/phpmyadmin en XAMPP
+  en la pestaña base de datos
+
+  despues asociar la base creada desde el
+  archivo .env en DB_DATABASE=
+
+//--------------------------------------------------------------
+
+Notas adicionales:
+
+- se puede crear el controlador y el modelo con un solo comando.
+  adicional, se puede especificar el tipo de controlador
+  ejemplo:
+  php artisan make:controller UserController --resource --model=User
+  ese comando crea un controlador de nombre "UserController"
+  de tipo resource, y crea el modelo con nombre "User"
+
+  resource controler ofrece los métodos para un crud

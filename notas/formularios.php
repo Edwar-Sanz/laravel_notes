@@ -62,6 +62,11 @@ class FormularioController extends Controller
     request()->validate([
       "name" => "requiered",
       "email"=> ["requiered", "email"]
+    ],[
+      // este array es para los mensajes de error
+
+      "name.required" => "escribe el nombre"
+
     ]);
 
 

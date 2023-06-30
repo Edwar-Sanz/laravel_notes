@@ -2,6 +2,8 @@
   a acciones específicas dentro de la aplicación. 
   se ubican en la carpeta /routes
 
+- El orden de la rutas importan
+
   para mostrar las rutas
   php artisan route::list muestra las rutas
 

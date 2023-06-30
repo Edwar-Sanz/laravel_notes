@@ -22,15 +22,18 @@
 
   php artisan make:controller MiControlador --invokable
   
-  <?php 
+  <?php
+  //-------------controlador------------------------------ 
   class myControler extends Controller
   {
     public function __invoke(Request $request)
     {
-      return view('myView');
+      $nombre = "Jhon";
+      return view('myView')->with("nombre", $nombre);
     }
   }
-
+  
+  //-------------ruta------------------------------------
   // en la ruta se invoca el controlador
   Route::get('/mi-ruta', 'myControler')->name("miRuta");
 

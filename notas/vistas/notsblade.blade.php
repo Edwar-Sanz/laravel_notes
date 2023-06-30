@@ -2,7 +2,7 @@
 
 {{-- para imprimir una variable se usa doble llave --}}
   {{-- esto imprime la varibable $nombre si no está definida imprime "invitado"  --}}
-  <p>saludos {{$nombre ?? "invitado"}}</p>
+  <p>saludos {{$nombre ?? "invitado"}}</p> {{-- la variable llega del controlado, se pasó con with("nombre", $nombre); --}}
 
 {{-- para usar una plantilla  --}}
 

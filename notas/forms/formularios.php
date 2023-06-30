@@ -16,7 +16,7 @@
       ya que con esta se van a manejar otros valores como
       old() first() validate() -->
     <!-- importante poner @csrf en cada formulario -->
-    <form action="/formulario/procesar" method="post">
+    <form action="/formulario/procesar" method="post"> <!-- rambién se puede usar action="{{route('formulario.procesar')}}"  -->
       @csrf
       <label for="nombre">Nombre:</label>
       <input type="text" name="nombre" id="nombre" required><br><br>

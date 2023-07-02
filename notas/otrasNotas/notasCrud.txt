@@ -52,7 +52,6 @@
 
   es necesario especificar en el modelo que atritubos cuando se hace asignación masiva
     protected $fillable = ["tarea", "estado"];
-  
 
   *el metodo edit sirve para mostrar el formulario del registro a editar
 

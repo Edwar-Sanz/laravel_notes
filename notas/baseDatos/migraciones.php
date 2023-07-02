@@ -53,3 +53,10 @@ si queremos ejecutar la migración:
 para editar la migracion se agrega --table="tabla a modificar"
 ejemplo:
   php artisan make:migration edit_users_table --table=users
+
+
+* nota:
+  si los datos no importan se puede editar directamente la migración y
+  ejecutar 
+
+  php artisan migrate:fresh

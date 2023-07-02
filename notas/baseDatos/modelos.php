@@ -1,13 +1,7 @@
 Modelo:
 
-- Representa la estructura y la lógica de negocio de 
-  los datos en tu aplicación.
-
 - Se utiliza para interactuar con la base de datos 
   y realizar operaciones CRUD (crear, leer, actualizar, eliminar).
-
-- Define las relaciones entre modelos, como 
-  relaciones uno a uno, uno a muchos o muchos a muchos.
 
 - Puede contener lógica adicional, como métodos para realizar 
   cálculos, procesamiento de datos y validaciones.
@@ -20,7 +14,7 @@ Modelo:
 //------------------------------------------------------------------------
 
 para crear un modelo:
-  php artisan make::model NombreModelo
+  php artisan make:model NombreModelo
 
 el modelo representará la tabla con el nombre del modelo
 en plurar y en minúsculas

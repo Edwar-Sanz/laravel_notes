@@ -1,0 +1,30 @@
+
+- crear proyecto
+  curl -s "https://laravel.build/nueva-aplicacion-laravel" | bash (desde WSL)
+
+- instalar sail
+  composer require laravel/sail --dev (desde windows)
+
+  php artisan sail:install
+
+- iniciar sail
+  ./vendor/bin/sail up  (desde WSL)
+ 
+- reconstruir contenedores
+  ./vendor/bin/sail build --no-cache
+
+- parar y eliminar los contenedores.
+  sail down
+
+- artisan
+  sail artisan migrate
+
+-composer
+  sail composer require 
+
+- mysql
+  sail mysql
+
+- node
+  sail node --version
+

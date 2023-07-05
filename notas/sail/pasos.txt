@@ -1,0 +1,24 @@
+-crear proyecto (desde windows)
+
+- sail instalar sail
+  composer require laravel/sail --dev (desde windows)
+
+- crear docker-compose.yml
+  php artisan sail:install (desde windows)
+
+- verificar puertos en el docker-compose.yml
+
+-agregar
+  node:
+    image: node:latest
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+
+- ejecutar sail
+  ./vendor/bin/sail up (desde wsl)
+
+-ingresar a:
+  http://localhost/
+
+

@@ -35,8 +35,8 @@ class EventoDePrueba implements ShouldBroadcast
     public function broadcastOn(): array
     {
         return [
-            // new PrivateChannel('privateChannelEventoDePrueba'), //canal privado
-            new Channel('publicChannelEventoDePrueba'), //canal publico
+            new PrivateChannel('privateChannelEventoDePrueba'), //canal privado
+            // new Channel('publicChannelEventoDePrueba'), //canal publico
             
         ];
     }

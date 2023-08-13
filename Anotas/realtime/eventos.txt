@@ -37,13 +37,24 @@
     forceTLS: false, //false en desarrollo
     enabledTransports: ['ws', 'wss'],
 
-- crear window.Echo.channel
+- crear window.Echo.channel (ver el ejemplo en \resources\js\bootstrap.js)
 
 -importar assets en la vista 
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 - iniciar vite
   npm run dev 
+
+si el canal es público, con eso ya debería funcionar
+
+
+//----------si el canal es privado------------------------
+
+-descomentar App\Providers\BroadcastServiceProvider::class de la ruta config/app.php
+
+- configurar la ruta en \routes\channels.php
+
+- debe existir un usuario logeado
 
 
 

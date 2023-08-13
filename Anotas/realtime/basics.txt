@@ -8,8 +8,7 @@
 
 -editar archivo .env
   BROADCAST_DRIVER=pusher
-
--configuraciones .env
+  
   PUSHER_APP_ID=123456
   PUSHER_APP_KEY=123456
   PUSHER_APP_SECRET=123456
@@ -43,12 +42,12 @@ continuar acá si estamos sin sail
 
 - ir a config/broadcasting.php y buscar el nodo pushery verificar options
   'options' => [
-    'cluster' => env('PUSHER_APP_CLUSTER'),
-    'host' => env('PUSHER_HOST') ?: 'api-'.env('PUSHER_APP_CLUSTER', 'mt1').'.pusher.com',
-    'port' => env('PUSHER_PORT', 443),
-    'scheme' => env('PUSHER_SCHEME', 'https'),
-    'encrypted' => true,
-    'useTLS' => env('PUSHER_SCHEME', 'https') === 'https',
+    'cluster' => env('PUSHER_APP_CLUSTER'),       
+    'host' => '127.0.0.1',
+    'port' => 6001,
+    'scheme' => 'http',
+    'encrypted' => false,
+    'useTLS' => false,
   ]
 
 -si todo sale bien se podrá entrar a http://127.0.0.1:8000/laravel-websockets

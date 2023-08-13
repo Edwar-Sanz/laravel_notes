@@ -35,10 +35,14 @@ window.Echo = new Echo({
     forceTLS: false,
 });
 
-window.Echo.channel('publicChannelEventoDePrueba') //nombre del canal publico
-// window.Echo.private('privateChannelEventoDePrueba') //nombre del canal privado
+// window.Echo.channel('publicChannelEventoDePrueba') //nombre del canal publico
+window.Echo.private('privateChannelEventoDePrueba') //nombre del canal privado
   .listen('EventoDePrueba',  // nombre la clase que emite el evento
     (e)=>{
       console.log("Message: " + e.message); //codigo para manejar el mensaje
     }
-  );
+  ).error((error) => {
+    console.error("Error en el canal:", error);
+  })
+  
+

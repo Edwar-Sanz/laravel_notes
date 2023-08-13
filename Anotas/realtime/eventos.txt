@@ -1,0 +1,57 @@
+- para crear un evento
+  php artisan make:event NombreDelEvento
+
+
+- los eventos se crean en app\Events
+
+- Configurar la clase:
+  ejemplo:
+  class EventoDePrueba implements ShouldBroadcast{
+    use Dispatchable, InteractsWithSockets, SerializesModels;
+    public string $message;
+    public function __construct($message){
+      $this->message  = $message;
+    }
+    public function broadcastOn(): array{
+      return [
+        // new PrivateChannel('channel-name'),
+        new Channel('channelEventoDePrueba'),    
+      ];
+    }
+  }
+
+-instalar librerias necesarias para escuchar los eventos:
+  npm install laravel-echo pusher-js
+
+- en la carpeta \resources\js\bootstrap.js
+  se encuentra la implementación de laravel echo
+  solo hay que descomentar el código
+
+- configurar echo:
+   broadcaster: 'pusher',
+    key: import.meta.env.VITE_PUSHER_APP_KEY,
+    cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER ?? 'mt1',
+    wsHost: window.location.hostname
+    wsPort: 6001
+    wssPort: import.meta.env.VITE_PUSHER_PORT ?? 443,
+    forceTLS: false, //false en desarrollo
+    enabledTransports: ['ws', 'wss'],
+
+- crear window.Echo.channel
+
+-importar assets en la vista 
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+- iniciar vite
+  npm run dev 
+
+
+
+
+
+
+
+
+
+
+

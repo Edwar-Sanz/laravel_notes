@@ -1,0 +1,61 @@
+-Crear un proyecto nuevo
+
+-instalar websockets
+  composer require beyondcode/laravel-websockets -w
+
+-instalar pusher
+  composer require pusher/pusher-php-server
+
+-editar archivo .env
+  BROADCAST_DRIVER=pusher
+
+-configuraciones .env
+  PUSHER_APP_ID=123456
+  PUSHER_APP_KEY=123456
+  PUSHER_APP_SECRET=123456
+
+-descomentar App\Providers\BroadcastServiceProvider::class
+  de la ruta config/app.php
+
+//------------pasos adicionales para laravel sail-----------//
+  -ejecutar comando
+    sail artisan sail:publish //esto crea una carpeta docker
+    
+  - dentro de la carpeta docker buscar supervisor.config
+    poner lo siguiente:
+    [program:websockets]
+    command=/usr/bin/php /var/www/html/artisan websockets:serve
+    numprocs=1
+    autostart=true
+    autorestart=true
+    user=sail
+
+  -en el docker-compose.yml en la seccion de puertos
+    - '${LARAVEL_WEBSOCKETS_PORT:-6001}:6001'
+
+  - detener sail y despues ejecutar:
+    sail up --build
+//--------------------------------------------------------//
+
+continuar acá si estamos sin sail
+- ejecutar:
+  php artisan websockets:serve
+
+- ir a config/broadcasting.php y buscar el nodo pushery verificar options
+  'options' => [
+    'cluster' => env('PUSHER_APP_CLUSTER'),
+    'host' => env('PUSHER_HOST') ?: 'api-'.env('PUSHER_APP_CLUSTER', 'mt1').'.pusher.com',
+    'port' => env('PUSHER_PORT', 443),
+    'scheme' => env('PUSHER_SCHEME', 'https'),
+    'encrypted' => true,
+    'useTLS' => env('PUSHER_SCHEME', 'https') === 'https',
+  ]
+
+-si todo sale bien se podrá entrar a http://127.0.0.1:8000/laravel-websockets
+  y darle en conect para verificar que todo funcione
+
+
+- a partir de aqui, ya se pueden Crear
+  eventos o notificaciones
+
+
